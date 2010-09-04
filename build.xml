@@ -62,6 +62,9 @@
             <expandproperties/>
         </filterchain>
         </copy>
+        <pear config="${pear.config}">
+            <arg line="channel-discover pear.meza.hu"/>
+        </pear>
         <pear-package packagexml="${package.dir}/package.xml" config="${pear.config}"/>
         <move file="PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"
         todir="${package.dir}"/>
