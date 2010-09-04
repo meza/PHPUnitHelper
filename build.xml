@@ -8,6 +8,7 @@
     <property name="pear.config"     location="${basedir}/.pearrc"/>
     <property name="test.dir"        location="${basedir}/tests"/>
     <property name="test.config.dir" location="${test.dir}/config"/>
+    <property name="pirum.repo.dir" location="$/opt/pearserver"/>
     <propertyfile file="version.properties">
         <entry key="version.major" default="0" type="int"/>
         <entry key="version.minor" default="0" type="int"/>
@@ -21,6 +22,7 @@
         <format property="date" pattern="yyyy-MM-dd"/>
         <format property="time" pattern="HH:mm:ss" />
     </tstamp>
+    <property name="package.tar" location="PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"/>
 
 <!-- import ant-helpers -->
     <import file="${basedir}/ant-helpers/shell.xml" />
@@ -62,8 +64,17 @@
         </filterchain>
         </copy>
         <pear-package packagexml="${package.dir}/package.xml" config="${pear.config}"/>
-        <move file="PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"
+        <move file="${package.tar}"
         todir="${package.dir}"/>
+    </target>
+
+    <target name="deploy" depends="package">
+
+        <shell executable="pirum">
+            <arg value="add"/>
+            <arg value="${pirum.repo.dir}"/>
+            <arg value="${package.dir}/${package.tar}"/>
+        </shell>
     </target>
 
 <!-- Generate the pear config file -->
