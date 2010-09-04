@@ -22,7 +22,7 @@
         <format property="date" pattern="yyyy-MM-dd"/>
         <format property="time" pattern="HH:mm:ss" />
     </tstamp>
-    <property name="package.tar" location="PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"/>
+    <property name="package.tar" value="PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"/>
 
 <!-- import ant-helpers -->
     <import file="${basedir}/ant-helpers/shell.xml" />
