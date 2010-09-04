@@ -22,7 +22,6 @@
         <format property="date" pattern="yyyy-MM-dd"/>
         <format property="time" pattern="HH:mm:ss" />
     </tstamp>
-    <property name="package.tar" value="PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"/>
 
 <!-- import ant-helpers -->
     <import file="${basedir}/ant-helpers/shell.xml" />
@@ -64,16 +63,16 @@
         </filterchain>
         </copy>
         <pear-package packagexml="${package.dir}/package.xml" config="${pear.config}"/>
-        <move file="${package.tar}"
+        <move file="PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"
         todir="${package.dir}"/>
     </target>
 
     <target name="deploy" depends="package">
-
+        <property name="package.tar" location="${package.dir}/PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"/>
         <shell executable="pirum">
             <arg value="add"/>
             <arg value="${pirum.repo.dir}"/>
-            <arg value="${package.dir}/${package.tar}"/>
+            <arg value="${package.tar}"/>
         </shell>
     </target>
 
