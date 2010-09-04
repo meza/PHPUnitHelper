@@ -1,0 +1,3 @@
+[submodule "ant-helpers"]
+	path = ant-helpers
+	url = git://github.com/meza/ant-helpers.git
