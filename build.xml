@@ -8,7 +8,7 @@
     <property name="pear.config"     location="${basedir}/.pearrc"/>
     <property name="test.dir"        location="${basedir}/tests"/>
     <property name="test.config.dir" location="${test.dir}/config"/>
-    <property name="pirum.repo.dir" location="$/opt/pearserver"/>
+    <property name="pirum.repo.dir" location="/opt/pearserver"/>
     <propertyfile file="version.properties">
         <entry key="version.major" default="0" type="int"/>
         <entry key="version.minor" default="0" type="int"/>
