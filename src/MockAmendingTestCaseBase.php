@@ -20,7 +20,7 @@
 
 require_once dirname(__file__).'/InvocationWrapper.php';
 require_once dirname(__file__).'/MatcherWrapper.php';
-require_once dirname(__file__).'/MockObjcetWrapper.php';
+require_once dirname(__file__).'/MockObjectWrapper.php';
 require_once dirname(__file__).'/MockWrapper.php';
 require_once dirname(__file__).'/CollectionAllOfThem.php';
 require_once dirname(__file__).'/ArrayKeyIs.php';
