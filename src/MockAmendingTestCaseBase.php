@@ -60,7 +60,8 @@ abstract class MockAmendingTestCaseBase extends PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-        self::$_oldErrorReporting = error_reporting(E_TESTLEVEL);
+        self::$_oldErrorReporting = error_reporting();
+        error_reporting(E_ALL | E_STRICT | E_DEPRECATED);
 
     }//end setUpBeforeClass()
 
