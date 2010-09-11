@@ -43,7 +43,7 @@ require_once dirname(__file__).'/ArrayKeyIs.php';
  * @link     http://www.assembla.com/spaces/p-pex
  * @see      getMock()
  */
-abstract class MockAmendingTestCaseBase extends \PHPUnit_Framework_TestCase
+abstract class MockAmendingTestCaseBase extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -91,7 +91,7 @@ abstract class MockAmendingTestCaseBase extends \PHPUnit_Framework_TestCase
      */
     protected function mock($className, array $methodsToBeCalled=array())
     {
-        $className = 'Pex\\'.$className;
+        $className = $className;
         $methodsOfObject = array();
         $rc              = new ReflectionClass($className);
         foreach ($rc->getMethods() as $method) {
