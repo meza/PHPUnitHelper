@@ -32,14 +32,14 @@ xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
 Initial release
  </notes>
  <contents>
-  <dir baseinstalldir="PHPUnitHelper" name="/">
-   <dir name="src" baseinstalldir="PHPUnitHelper">
+  <dir name="\">
+   <dir name="src">
     <file name="ArrayKeyIs.php" role="php" baseinstalldir="PHPUnitHelper"/>
     <file name="CollectionAllOfThem.php" role="php" baseinstalldir="PHPUnitHelper" />
     <file name="InvocationWrapper.php" role="php" baseinstalldir="PHPUnitHelper" />
     <file name="MatcherWrapper.php" role="php" baseinstalldir="PHPUnitHelper" />
     <file name="MockAmendingTestCaseBase.php" role="php" baseinstalldir="PHPUnitHelper" />
-    <file name="MockObjectWrapper.php" role="php baseinstalldir="PHPUnitHelper"" />
+    <file name="MockObjectWrapper.php" role="php" baseinstalldir="PHPUnitHelper" />
     <file name="MockWrapper.php" role="php" baseinstalldir="PHPUnitHelper" />
    </dir> <!-- //src -->
   </dir> <!-- / -->
