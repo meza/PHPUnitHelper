@@ -34,13 +34,13 @@ Initial release
  <contents>
   <dir baseinstalldir="PHPUnitHelper" name="/">
    <dir name="src" baseinstalldir="PHPUnitHelper">
-    <file name="ArrayKeyIs.php" role="php" />
-    <file name="CollectionAllOfThem.php" role="php" />
-    <file name="InvocationWrapper.php" role="php" />
-    <file name="MatcherWrapper.php" role="php" />
-    <file name="MockAmendingTestCaseBase.php" role="php" />
-    <file name="MockObjectWrapper.php" role="php" />
-    <file name="MockWrapper.php" role="php" />
+    <file name="ArrayKeyIs.php" role="php" baseinstalldir="PHPUnitHelper"/>
+    <file name="CollectionAllOfThem.php" role="php" baseinstalldir="PHPUnitHelper" />
+    <file name="InvocationWrapper.php" role="php" baseinstalldir="PHPUnitHelper" />
+    <file name="MatcherWrapper.php" role="php" baseinstalldir="PHPUnitHelper" />
+    <file name="MockAmendingTestCaseBase.php" role="php" baseinstalldir="PHPUnitHelper" />
+    <file name="MockObjectWrapper.php" role="php baseinstalldir="PHPUnitHelper"" />
+    <file name="MockWrapper.php" role="php" baseinstalldir="PHPUnitHelper" />
    </dir> <!-- //src -->
   </dir> <!-- / -->
  </contents>
