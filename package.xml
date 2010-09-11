@@ -33,7 +33,7 @@ Initial release
  </notes>
  <contents>
   <dir baseinstalldir="PHPUnitHelper" name="/">
-   <dir name="src">
+   <dir name="src" baseinstalldir="PHPUnitHelper">
     <file name="ArrayKeyIs.php" role="php" />
     <file name="CollectionAllOfThem.php" role="php" />
     <file name="InvocationWrapper.php" role="php" />
