@@ -8,13 +8,13 @@ xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
  <name>PHPUnitHelper</name>
- <channel>pear.meza.hu</channel>
+ <channel>pear.alternateillusion.com</channel>
  <summary>Helper files for easier life with PHPUnit</summary>
  <description>Deploys PHPUnitHelper</description>
  <lead>
   <name>meza</name>
   <user>meza</user>
-  <email>meza@ustream.tv</email>
+  <email>meza@meza.hu</email>
   <active>yes</active>
  </lead>
  <date>${build.date}</date>

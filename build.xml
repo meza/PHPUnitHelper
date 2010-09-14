@@ -2,21 +2,14 @@
 <project name="PHPUnitHelper" default="build">
 
 <!-- set default properties -->
-    <property name="build.dir"      location="${basedir}/build"/>
-    <property name="package.dir"      location="${build.dir}/package"/>
-    <property name="vendor.dir"      location="${basedir}/vendor"/>
-    <property name="pear.config"     location="${basedir}/.pearrc"/>
-    <property name="test.dir"        location="${basedir}/tests"/>
-    <property name="test.config.dir" location="${test.dir}/config"/>
-    <property name="pirum.repo.dir" location="/opt/pearserver"/>
-    <propertyfile file="version.properties">
-        <entry key="version.major" default="0" type="int"/>
-        <entry key="version.minor" default="0" type="int"/>
-        <entry key="version.state" default="alpha" type="string"/>
-    </propertyfile>
-    <property file="${basedir}/build.properties"/>
-    <property file="${basedir}/version.properties"/>
-    <property file="${basedir}/build.number"/>
+    <property file="${basedir}${file.separator}build.properties"/>
+    <property name="build.dir"       location="${basedir}${file.separator}build"/>
+    <property name="package.dir"     location="${build.dir}${file.separator}package"/>
+    <property name="test.dir"        location="${basedir}${file.separator}tests"/>
+    <property name="test.config.dir" location="${test.dir}${file.separator}config"/>
+    <property name="pirum.repo.dir"  location=""/>
+    <property file="${basedir}${file.separator}version.properties"/>
+    <property file="${basedir}${file.separator}build.number"/>
     <buildnumber/>
     <tstamp prefix="build">
         <format property="date" pattern="yyyy-MM-dd"/>
@@ -24,9 +17,9 @@
     </tstamp>
 
 <!-- import ant-helpers -->
-    <import file="${basedir}/ant-helpers/shell.xml" />
-    <import file="${basedir}/ant-helpers/pear.xml" />
-    <import file="${basedir}/ant-helpers/phpunit.xml" />
+    <import file="${basedir}${file.separator}ant-helpers${file.separator}shell.xml" />
+    <import file="${basedir}${file.separator}ant-helpers${file.separator}pear.xml" />
+    <import file="${basedir}${file.separator}ant-helpers${file.separator}phpunit.xml" />
 
     <target name="prepare">
         <mkdir dir="${build.dir}"/>
@@ -35,16 +28,6 @@
 
     <target name="clean">
         <delete dir="${build.dir}"/>
-    </target>
-<!-- Remove all generated content -->
-    <target name="distclean" description="Remove all generated content">
-        <delete dir="${vendor.dir}"/>
-        <delete file="${pear.config}"/>
-    </target>
-
-<!-- Clean and prepare the first build -->
-    <target name="init" depends="distclean, generate-pear-config">
-        <pear-install channel="pear.php.net" package="PHP_CodeSniffer"/>
     </target>
 
     <target name="package" depends="build">
@@ -62,16 +45,13 @@
             <expandproperties/>
         </filterchain>
         </copy>
-        <pear config="${pear.config}">
-            <arg line="channel-discover pear.meza.hu"/>
-        </pear>
-        <pear-package packagexml="${package.dir}/package.xml" config="${pear.config}"/>
-        <move file="PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"
+        <pear-package packagexml="${package.dir}${file.separator}package.xml"/>
+        <move file="${ant.project.name}-${version.major}.${version.minor}.${build.number}.tgz"
         todir="${package.dir}"/>
     </target>
 
     <target name="deploy" depends="package">
-        <property name="package.tar" location="${package.dir}/PHPUnitHelper-${version.major}.${version.minor}.${build.number}.tgz"/>
+        <property name="package.tar" location="${package.dir}${file.separator}${ant.project.name}-${version.major}.${version.minor}.${build.number}.tgz"/>
         <shell executable="pirum">
             <arg value="add"/>
             <arg value="${pirum.repo.dir}"/>
@@ -79,26 +59,8 @@
         </shell>
     </target>
 
-<!-- Generate the pear config file -->
-    <target name="generate-pear-config" depends="distclean">
-        <pear-generate-config peardir="${vendor.dir}"/>
-    </target>
-
-<!-- Check if the pear config file is present and fail if not -->
-    <target name="check-pear">
-        <fail message="Run ant init">
-            <condition>
-                <not>
-                    <available file="${pear.config}"/>
-                </not>
-            </condition>
-        </fail>
-    </target>
 
 <!-- Build the project -->
-    <target name="build" description="Build the project"
-        depends="check-pear, prepare">
-            
-    </target>
+    <target name="build" description="Build the project" depends="prepare"/>
 
 </project>
